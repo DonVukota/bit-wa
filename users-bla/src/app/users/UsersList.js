@@ -7,12 +7,14 @@ const UsersList=(props)=>{
     
     return (
         <ul className="collection">
+        <div className='row'>
         {props.data.map((singleUser,i) => {
             return props.isGrid ?
             <UserCardItem key={i} user={singleUser} />:
             <GridView key={i} user={singleUser} />}
-        )} </ul>
-
+        )} 
+        </div>
+        </ul>
        
 )}
 export default UsersList;

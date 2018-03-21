@@ -1,11 +1,12 @@
-class User{
-    constructor(name,email,dob,picture){
-        
-        this.UserName=name;
-        this.UserEmail=email;
-        this.UserDob=dob;
-        this.UserPicture=picture.large
-    
+class User {
+    constructor(user) {
+
+        this.firstName = user.name.first;
+        this.lastName = user.name.last;
+        this.email = user.email;
+        this.picture = user.picture.large;
+        this.gender = user.gender;
+        this.date = user.dob;
     }
 }
 

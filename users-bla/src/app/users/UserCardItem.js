@@ -1,11 +1,12 @@
 
 import React from 'react'
+import User from '../../entites/User'
 
 
 const UserCardItem = (props) => {
-    console.log(props.user);
+    const genre = props.user.gender;
     const email = props.user.email;
-    const dateN = props.user.dob;
+    const dateN = props.user.date;
     const dateNew = (date) => {
         const newD = new Date(date);
         const yearD = newD.getFullYear();
@@ -22,20 +23,34 @@ const UserCardItem = (props) => {
         const slicedOutput = mail.replace(slicedEmail, "...");
         return slicedOutput;
     }
+    if(genre=='male'){
     return (
         <div>
 
             <li className="collection-item avatar">
-                <img src={props.user.picture.large} alt="" className="circle" />
-                <span className="title">Name: {props.user.name.first} {props.user.name.last}</span>
+                <img src={props.user.picture} alt="" className="circle" />
+                <span className="title">Name: {props.user.firstName} {props.user.lastName}</span>
                 <p>     <i className="material-icons " >email</i> Email: {emailUpper(email)}<br />
                     Date Of Birth: {dateNew(dateN)}
                 </p>
             </li>
         </div>
     )
-}
+}else{
+    return(
+        <div>
 
+        <li className="collection-item avatar #ffebee red lighten-5">
+            <img src={props.user.picture} alt="" className="circle" />
+            <span className="title">Name: {props.user.firstName} {props.user.lastName}</span>
+            <p>     <i className="material-icons " >email</i> Email: {emailUpper(email)}<br />
+                Date Of Birth: {dateNew(dateN)}
+            </p>
+        </li>
+    </div>
+    )
+}
+}
 
 export default UserCardItem;
 
